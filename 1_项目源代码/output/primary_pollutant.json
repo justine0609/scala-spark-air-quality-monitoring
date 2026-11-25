@@ -1,0 +1,1 @@
+{"meta":{"title":"首要污染物占比","base":1800,"baseDesc":"站点日样本数（对每条记录取 IAQI 最大项）","generated":"2026-11-23 11:43:50"},"data":[{"name":"PM2.5","records":1320,"ratio":73.33},{"name":"PM10","records":180,"ratio":10.00},{"name":"NO2","records":171,"ratio":9.50},{"name":"O3","records":106,"ratio":5.89},{"name":"无","records":23,"ratio":1.28}]}
