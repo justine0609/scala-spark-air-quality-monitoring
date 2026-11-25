@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>区域空气质量监测与污染特征分析大屏</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stage">
+
+  <header class="hd">
+    <div class="hd-left">
+      <div class="logo"></div>
+      <div>
+        <h1>区域空气质量监测与污染特征分析</h1>
+        <div class="sub" id="hd-sub">数据加载中…</div>
+      </div>
+    </div>
+    <div class="hd-right">
+      <div class="ticker"><span id="ticker-text"></span></div>
+      <div class="hd-meta"><span id="refresh-time">--:--:--</span> 自动刷新</div>
+    </div>
+  </header>
+
+  <section class="kpi" id="kpi-row">
+    <div class="kpi-card">
+      <div class="kpi-label">优良率</div>
+      <div class="kpi-value"><span id="k-goodrate">--</span><i>%</i></div>
+      <div class="kpi-sub" id="k-gooddays">有效天 --</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">重污染天数</div>
+      <div class="kpi-value"><span id="k-heavy">--</span><i>天</i></div>
+      <div class="kpi-sub">AQI &gt; 200</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">PM2.5 期间均值</div>
+      <div class="kpi-value"><span id="k-pm25">--</span><i>μg/m³</i></div>
+      <div class="kpi-sub" id="k-avg">期间平均 AQI --</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">首要污染物</div>
+      <div class="kpi-value"><span id="k-primary" class="kpi-text">--</span></div>
+      <div class="kpi-sub" id="k-peak">AQI 峰值 --</div>
+    </div>
+  </section>
+
+  <section class="row r1">
+    <div class="panel w-940">
+      <div class="p-hd"><b>60 天 AQI 与 PM2.5 时间序列</b><em>左轴 AQI（无量纲） / 右轴 PM2.5（μg/m³）</em></div>
+      <div class="p-bd"><div class="chart" id="c-trend"></div></div>
+    </div>
+    <div class="panel w-460">
+      <div class="p-hd"><b>AQI 等级分布</b><em>天数占比 · 国标标识色（前端柔化）</em></div>
+      <div class="p-bd"><div class="chart" id="c-level"></div></div>
+    </div>
+    <div class="panel w-468">
+      <div class="p-hd"><b>首要污染物占比</b><em>站点日样本</em></div>
+      <div class="p-bd"><div class="chart" id="c-primary"></div></div>
+    </div>
+  </section>
+
+  <section class="row r2">
+    <div class="panel w-640">
+      <div class="p-hd"><b>站点 AQI 排名 Top 10</b><em>污染最重 · 横轴自 80 起 · 颜色为等级色</em></div>
+      <div class="p-bd"><div class="chart" id="c-rank"></div></div>
+    </div>
+    <div class="panel w-596">
+      <div class="p-hd"><b>风速与 AQI 关系</b><em>日均风速 m/s × 日 AQI</em></div>
+      <div class="p-bd"><div class="chart" id="c-scatter"></div></div>
+    </div>
+    <div class="panel w-632">
+      <div class="p-hd"><b>六项污染物月均对比</b><em>左轴 μg/m³ / 右轴 CO mg/m³</em></div>
+      <div class="p-bd"><div class="chart" id="c-month"></div></div>
+    </div>
+  </section>
+
+  <section class="row r3">
+    <div class="panel w-full">
+      <div class="p-hd"><b>污染日历热力图</b><em>日期 × 区县 日 AQI · 颜色按国标分档（前端柔化）</em></div>
+      <div class="p-bd"><div class="chart" id="c-calendar"></div></div>
+    </div>
+  </section>
+</div>
+
+<div class="err" id="err"><div>
+  <b>数据读取失败</b><br>
+  <span id="err-hint"></span>
+  <div class="err-detail" id="err-detail"></div>
+</div></div>
+
+<script src="lib/echarts.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
